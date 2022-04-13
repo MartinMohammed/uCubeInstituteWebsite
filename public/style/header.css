@@ -1,0 +1,18 @@
+.header {
+  min-height: 100vh;
+  width: 100%;
+  background-image: linear-gradient(
+      to right,
+      rgba(78, 78, 87, 0.267) 20%,
+      rgba(22, 21, 20, 0.5)
+    ),
+    url("../images/ghs_img/02.jpg");
+  background-position: center;
+  background-size: cover;
+  position: relative;
+}
+
+/* overwrite the style of style.css to remove the background image in the homepage */
+.sub-header {
+  background: none;
+}

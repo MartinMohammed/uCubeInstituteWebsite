@@ -1,0 +1,22 @@
+<!-- -------------- APPLY FOR BLOG POST AND PUBLICATIONS ---------  -->
+<%- include("./../partials/head.ejs") -%> 
+<link rel="stylesheet" href="/style/forms.css">
+</head> 
+    <body>
+        <%- include("./../partials/nav.ejs") %>
+    <main>
+        <form class="edit-form" action="/admin/<%= actionPath %>" method="POST">
+            <div class="form-control">
+                <label for="title">Title</label>
+                <input type="text" name="title" id="title" value="<%=editing ? post.title : '' %>"/>
+            </div>
+            <div class="form-control">
+                <label for="content">Content</label>
+                <textarea name="content" id="content" rows="5"><%=editing ? post.content : "" %></textarea>
+            </div>
+            <!-- Id for identifying the current [publication] in the database -->
+            <%if(editing){%> <input type="hidden" name="blogPostId" value="<%=post.id%>"/><%} %>
+            <button class="hero-btn red-btn " type="submit"><%= editing? "Update Blog Post" : "Add Blog Post" %></button>
+        </form>
+    </main>
+<%- include("./../partials/end.ejs") %> 

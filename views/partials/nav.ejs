@@ -1,0 +1,17 @@
+<section class="sub-header">
+<nav>
+  <a href="index.html"></a>
+  <div class="nav-links" id="navLinks">
+    <i class="fa-solid fa-xmark"></i>
+    <ul class="nav-links__item-list">
+      <li class="nav-links__item"><a class="<%= path === "/" ? 'active' : ''%>" href="/">HOME</a></li>
+      <li class="nav-links__item"> <a class="<%= path === "/about" ? 'active' : ''%>" href="/about">ABOUT</a></li>
+      <li class="nav-links__item"><a class="<%= path === "/blog" ? 'active' : ''%>" href="/blog">BLOG</a></li>
+      <li class="nav-links__item"><a  class="<%= path === "/publications" ? 'active' : ''%>" href="/publications">PUBLICATIONS</a></li>
+      <li class="nav-links__item"><a  class="<%= path === "/contact" ? 'active' : ''%>" href="/contact">CONTACT</a></li>
+    </ul>
+  </div>
+  <i class="fa-solid fa-bars"></i>
+</nav>
+<h1> <%= pageTitle %> </h1>
+</section>
