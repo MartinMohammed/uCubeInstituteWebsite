@@ -1,40 +1,58 @@
 // ---------- IMPORT/REQUIRE MODULES ----------
 const express = require("express");
 const path = require("path");
-const ejs = require("ejs");
 const bodyParser = require("body-parser");
+const helmet = require("helmet");
+const compression = require("compression");
+require("dotenv").config();
+const csrf = require("csurf");
 
-const app = express();
-// ------------- REGISTER MIDDLEWARE -------------
-// --- TO PARSE LATER REQUEST BODIES = REGISTER MIDDLEWARE
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(express.static(path.join(__dirname, "public")));
-app.set("view engine", "ejs");
+// TODO: - SESSION
+// const session = require('session')
 
-// --------------- REQUIRE FUNCTION FROM SELF MADE MODULES -------
+// TODO: - SESSION STORE
+// const MongoDBStore = require("connect-mongodb-session")(session)
+
+// ENVIRONMENT VARIABLES
+const { SERVER_PORT } = process.env;
+
+// UTIL
+const mongooseConnect = require("./util/database").mongooseConnect;
+
+// CUSTOM MIDDLEWARE
+const errorHandling = require("./middleware/errorHandling");
+
+// MVC - ROUTES
 const publicRoutes = require("./routes/public");
 const adminRoutes = require("./routes/admin");
 
-// ---------- CONSTANTS ----------
-const LOCAL_PORT = 3000;
+const app = express();
 
-// ---------- APP ---------- > USE MODEL VIEW CONTROLLER
-// ! register routes
+// ------------- REGISTER MIDDLEWARE -------------
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(express.static(path.join(__dirname, "public")));
+// TODO: MULTER CONFIG
+app.set("view engine", "ejs");
+
+// TODO: ADD LOGING WITH MORGAN
+// * DEFAULT SETTINGS
+app.use(compression());
+app.use(helmet());
+
+// TODO: CONFIGURE CSRF
+// app.use(csrf());
+
 // ROUTE FILTERING
-// app.use("/admin", adminRoutes);
 app.use("/admin", adminRoutes);
 app.use("/", publicRoutes);
 
-// app.route("/about").get((req, res) => res.render("about.ejs"));
-// app.route("/publications").get((req, res) => {
-//   res.render("publications.ejs");
-// });
-// app.route("/blog").get((req, res) => res.render("blog"));
-// app.route("/contact").get((req, res) => {
-//   res.render("contact");
-// });
+// * SPECIAL TYPE OF MIDDLEWARE - ERROR HANDLING WITH 4 ARGUMENTS
+app.use(errorHandling);
 
-// TODO: IMPLEMENT sequelize.sync().then(() => {app.listen}) | so that the server only starts when the sync was successfully
-app.listen(LOCAL_PORT, () =>
-  console.log(`SERVER IS SUCCESSFULLY LISTENING AT PORT: ${LOCAL_PORT}`)
-);
+// make connection with database
+mongooseConnect(() => {
+  // TODO: IMPLEMENT sequelize.sync().then(() => {app.listen}) | so that the server only starts when the sync was successfully
+  app.listen(SERVER_PORT, () =>
+    console.log(`SERVER IS SUCCESSFULLY LISTENING AT PORT: ${SERVER_PORT}`)
+  );
+});

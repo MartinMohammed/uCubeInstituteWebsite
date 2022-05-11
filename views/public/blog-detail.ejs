@@ -3,4 +3,16 @@
 </head>
 <body>
 <%- include("./../partials/nav.ejs") %>
+
+                        <!-- -------- comment box section --------- -->
+ <div class="comment-box">
+    <h3>Leave a comment</h3>
+    <!-- !TODO ADD QUERY PARAMETER TO SIGNALIZE WHERE TO PUT THE COMMENT -->
+    <form class="comment-form" action="/blog/add-comment" method="POST">
+        <input name="name" type="text" placeholder="Enter Name">
+        <input name="email" type="email" placeholder="Enter Email">
+        <textarea name="comment" id="" rows="5" placeholder="Your comment"></textarea>
+        <button type="submit" class="hero-btn red-btn">POST COMMENT</button>
+    </form>
+</div>
 <%- include("./../partials/end.ejs") %>

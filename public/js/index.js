@@ -7,3 +7,9 @@ document.querySelector(".fa-bars").addEventListener("click", () => {
 document.querySelector(".fa-xmark").addEventListener("click", () => {
   navLinks.style.right = "-200px";
 });
+
+// ---------------- ABOUT PAGE ---------------
+// const showMoreUCubeMethodBtn = doucment.getElementById("show-uCube-Method");
+// showMoreUCubeMethodBtn.addEventListener("click", (event) => {
+//   showMoreUCubeMethodBtn.innerText =
+// })

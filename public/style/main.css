@@ -4,6 +4,7 @@
   font-family: "Poppins", sans-serif;
 }
 
+
 /* ------------------ HEADER SECTION --------------------- */
 
 nav {
@@ -133,8 +134,8 @@ nav .fa-solid {
   }
 }
 
-/* <!-- -------------------- PUBLICATIONS SECTION -------------------- --> */
-.course {
+/* <!-- -------------------- uCube__Information SECTION -------------------- --> */
+.uCube__Information {
   width: 80%;
   margin: auto;
   text-align: center;
@@ -159,7 +160,7 @@ p {
   justify-content: space-between;
 }
 
-.course-col {
+.uCube__Information-col {
   flex-basis: 31%;
   background: #fff3f3;
   border-radius: 10px;
@@ -176,7 +177,7 @@ h3 {
   margin: 10px 0;
 }
 
-.course-col:hover {
+.uCube__Information-col:hover {
   /* 20% opacity */
   box-shadow: 0 0 20px 0px rgba(0, 0, 0, 0.2);
 }
@@ -187,15 +188,15 @@ h3 {
   }
 }
 
-/* <!-- -------------------- CAMPUS SECTION -------------------- --> */
-.campus {
+/* <!-- -------------------- uCube__About SECTION -------------------- --> */
+.uCube__About {
   width: 80%;
   margin: auto;
   text-align: center;
   padding-top: 50px;
 }
 
-.campus-col {
+.uCube__About-col {
   /*  the .row is automatically flex */
   flex-basis: 32%;
   border-radius: 10px;
@@ -204,7 +205,7 @@ h3 {
   overflow: hidden;
 }
 
-.campus-col img {
+.uCube__About-col img {
   width: 100%;
   display: block;
 }
@@ -244,42 +245,49 @@ h3 {
   opacity: 1;
 }
 
-/* <!-- -------------------- FACILITIES SECTION -------------------- --> */
-.facilities {
+/* <!-- -------------------- GHS SECTION -------------------- --> */
+.GHS {
   width: 80%;
   margin: auto;
   text-align: center;
-  padding-top: 100px;
+  
+  padding-top: 50px;
 }
 
-.facilities-col {
+.image-layer{
+  position: relative; 
+}
+
+.GHS-col {
   flex-basis: 32%;
+  overflow: hidden;
   border-radius: 10px;
   margin-bottom: 5%;
   text-align: left;
 }
 
-.facilities-col img {
+.GHS-col img {
   width: 100%;
-  border-radius: 10px;
+  display: block;
+  border-radius:  10px;
 }
 
-.facilities-col p {
+.GHS-col p {
   padding: 0;
 }
 
-.facilities-col h3 {
+.GHS-col h3 {
   margin-top: 16px;
   margin-bottom: 15px;
-  text-align: left;
+  text-align: center;
 }
 
-/* <!-- -------------------- TESTIMONIAL SECTION -------------------- --> */
+/* <!-- -------------------- uCube TESTIMONIAL SECTION -------------------- --> */
 .testimonials {
   width: 80%;
   margin: auto;
   text-align: center;
-  padding-top: 100px;
+  padding-top: 0px;
 }
 
 .testimonial-col {
@@ -288,7 +296,7 @@ h3 {
   margin-bottom: 5%;
   text-align: left;
   /* // make a box */
-  background: #fff3f3;
+  background: #FFDEAD;
   padding: 25px;
   cursor: pointer;
   display: flex;
@@ -320,12 +328,30 @@ h3 {
   }
 }
 
+/* <!-- -------------------- uCube Method SECTION -------------------- --> */
+.uCube__Method{
+  background-color: #708090;
+}
+
+.uCube__Method .uCube__Method-content{
+  padding: 5rem 0; 
+  width: 80%; 
+  margin: auto; 
+  text-align: center;
+}
+
+.uCube__Method-content p{
+  color: white;
+}
+
+
+
 /* <!-- -------------------- CALL TO ACTION SECTION -------------------- --> */
 .cta {
   margin: 100px auto;
   width: 80%;
-  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
-    url("../images/eduford_img/banner2.jpg");
+  background-image: linear-gradient(rgba(119, 113, 113, 0.7), rgba(0, 0, 0, 0.7)),
+    url("../images/ghs_img/01.jpg");
   background-position: center;
   background-size: cover;
   border-radius: 10px;
@@ -415,6 +441,13 @@ h3 {
   background: transparent;
   /* textcolor */
   color: #f44336;
+}
+
+.white-btn{
+  border: 1px solid; 
+  border-radius: 2rem; 
+  background: white; 
+  color: black; 
 }
 .red-btn:hover {
   color: #fff;

@@ -10,33 +10,16 @@
 <section class="blog-content">
         <div class="row">
             <div class="blog-left">
-                <img src="images/eduford_img/certificate.jpg" alt="Certificate">
-                <h2>Lorem Ipsum </h2>
-                <p>
-                    Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren,
-                </p>
-                <br>
-                <p>
-                    Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren,
-                </p>
-                <br>
-                <p>
-                    Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren,
-                </p>
-                <br>
-                <p>
-                    Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren,
-                </p>
-                <!-- -------- comment box section --------- -->
-                <div class="comment-box">
-                    <h3>Leave a comment</h3>
-                    <form class="comment-form" action="/blog/add-comment" method="POST">
-                        <input name="name" type="text" placeholder="Enter Name">
-                        <input name="email" type="email" placeholder="Enter Email">
-                        <textarea name="comment" id="" rows="5" placeholder="Your comment"></textarea>
-                        <button type="submit" class="hero-btn red-btn">POST COMMENT</button>
-                    </form>
-                </div>
+                <% blogPosts.forEach((blogPost) => { %>
+                <div class="publication">
+                        <img src="images/eduford_img/certificate.jpg" alt="Certificate">
+                        <h2><%= blogPost.title %> - <%= blogPost.createdAt.getDay() %>.<%=blogPost.createdAt.getMonth()%>.<%= blogPost.createdAt.getFullYear() %></h2>
+                        <p><%= blogPost.content.substring(0, 35) %>... </p>
+                        <br>
+                        <a href="/blog/<%= blogPost._id.toString() %>" class="red-btn hero-btn">Weiter</a>
+                    </div>
+                    <br>
+                    <% }) %>
             </div>
             <div class="blog-right">
                 <h3>Post Categories</h3>

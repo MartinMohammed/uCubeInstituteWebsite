@@ -1,4 +1,9 @@
-// TODO ----------- HANDLE ROUTES SUCH AS: FOR ADDING (BLOG POSTS) / ADMIN PANEL ------
+// --------------------- CONTROLLER FOR /admin ---------------------
+// Models
+const User = require("../model/user");
+const BlogPost = require("../model/blogPost");
+
+// ! ---------------- RELATING TO BLOG POST
 exports.getAddBlogPost = (req, res, next) => {
   // use editBlogPost both for editing a blog Post and adding one depening on editing value
   res.render("admin/edit-post", {
@@ -6,12 +11,26 @@ exports.getAddBlogPost = (req, res, next) => {
     path: "/admin/add-blogPost",
     editing: false,
     addPostAddress: "add-blogPost",
+    actionPath: "add-blogPost",
   });
 };
-
-exports.postAddBlogPost = (req, res, next) => {
+// --------- CREATE A NEW BLOG POST ------------
+exports.postAddBlogPost = async (req, res, next) => {
   const { title, content } = req.body;
-  console.log(`From Add Post Blog: `), title, content;
+  console.log(`From Add Post Blog: `);
+  // TODO: SHOULD BE VALIDATED
+  const blogPost = new BlogPost({
+    title: title,
+    content: content,
+    imageUrl: "jasdjadjsf",
+    createdAt: new Date(),
+  });
+  const savedBlogPost = blogPost.save();
+  if (!savedBlogPost) {
+    console.log("a error occured");
+  }
+  console.log("Blog was saved succesfully");
+
   res.redirect("/");
 };
 
@@ -30,12 +49,22 @@ exports.getEditBlogPost = (req, res, next) => {
   });
 };
 
+exports.postEditBlogPost = (req, res, next) => {
+  // title & content of blogPost
+  // now replace old data with new data in db
+  const { title, content, id: postId } = req.body;
+  console.log("FROM postEditBlogPost: ", title, content);
+  res.redirect("/");
+};
+
+// ! ---------------- RELATING TO PUBLICATION
 exports.getAddPublication = (req, res, next) => {
   res.render("admin/edit-post", {
     pageTitle: "Add publication",
     path: "/admin/add-publication",
     editing: false,
     addPostAddress: "add-publication",
+    actionPath: "/admin/add-publication",
   });
 };
 
@@ -57,13 +86,6 @@ exports.getEditPublication = (req, res, next) => {
   });
 };
 
-exports.postEditBlogPost = (req, res, next) => {
-  // title & content of blogPost
-  // now replace old data with new data in db
-  const { title, content, id: postId } = req.body;
-  console.log("FROM postEditBlogPost: ", title, content);
-  res.redirect("/");
-};
 exports.postEditPublication = (req, res, next) => {
   // title & content of Publication
   // now replace old data with new data in db

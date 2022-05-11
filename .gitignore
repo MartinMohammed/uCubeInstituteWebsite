@@ -131,3 +131,7 @@ dist
 
 # images
 public/images
+
+Documentation.md
+
+.prettierignore

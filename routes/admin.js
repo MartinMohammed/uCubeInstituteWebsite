@@ -1,3 +1,5 @@
+// PACKAGES
+const { check, body } = require("express-validator/check");
 const path = require("path");
 const express = require("express");
 
@@ -13,12 +15,14 @@ router.get("/add-publication", adminController.getAddPublication);
 router.post("/add-publication", adminController.postAddPublication);
 
 // ----------- FOR GETING EDITING PAGE WITH EDIT OPTION
+// post & blog id in the req.body
 router.get("/edit-blogPost/:postId", adminController.getEditBlogPost);
+router.post("/edit-blogPost", adminController.postEditBlogPost);
+
 router.get(
   "/edit-publication/:publicationId",
   adminController.getEditPublication
 );
-router.post("/edit-blogPost", adminController.postEditBlogPost);
 router.post("/edit-publication", adminController.postEditPublication);
 
 module.exports = router;
