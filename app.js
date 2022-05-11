@@ -52,7 +52,7 @@ app.use(errorHandling);
 // make connection with database
 mongooseConnect(() => {
   // TODO: IMPLEMENT sequelize.sync().then(() => {app.listen}) | so that the server only starts when the sync was successfully
-  app.listen(SERVER_PORT, () =>
+  app.listen(SERVER_PORT || process.env.PORT, () =>
     console.log(`SERVER IS SUCCESSFULLY LISTENING AT PORT: ${SERVER_PORT}`)
   );
 });
