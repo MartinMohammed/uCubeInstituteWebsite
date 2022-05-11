@@ -12,7 +12,7 @@ exports.getHomepage = async (req, res, next) => {
 
 exports.getAbout = (req, res, next) => {
   res.render("public/about", {
-    pageTitle: "Über uns",
+    pageTitle: "Wer sind wir?",
     path: "/about",
   });
 };
@@ -54,7 +54,7 @@ exports.getPublications = (req, res, next) => {
   // TODO: FETCH PUBLICATION POSTS AND PASS THEM INTO THE EJS FILE AS ARGS
   // TODO: IMPLEMENT PUBLICATION HANDLING (ARGS: publicationPost, path > /publications, pageTitle = PublicationPostTitle, existingDetails > true, flase, )
   res.render("public/publications", {
-    pageTitle: "Publikationen",
+    pageTitle: "Unsere Publikationen & Experimente",
     path: "/publications",
   });
 };
@@ -69,7 +69,7 @@ exports.getPublications = (req, res, next) => {
 
 exports.getContact = (req, res, next) => {
   res.render("public/contact", {
-    pageTitle: "Kontakt",
+    pageTitle: "Kontaktier uns",
     path: "/contact",
   });
 };

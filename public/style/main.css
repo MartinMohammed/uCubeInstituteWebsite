@@ -134,6 +134,21 @@ nav .fa-solid {
   }
 }
 
+/* HOMEPAGE - HEADING SECTION  */
+.heading-primary{
+  display: block; 
+  font-size: 6rem;
+  font-weight: 400;
+  animation: moveInLeft 3s ease-out; 
+}
+
+.heading-companion{
+  display: block; 
+  font-size: 2rem;
+  animation: moveInRight 1s ease-out; 
+}
+
+
 /* <!-- -------------------- uCube__Information SECTION -------------------- --> */
 .uCube__Information {
   width: 80%;
@@ -258,29 +273,36 @@ h3 {
   position: relative; 
 }
 
-.GHS-col {
-  flex-basis: 32%;
+.card-col {
+  flex-basis: 30%;
   overflow: hidden;
   border-radius: 10px;
   margin-bottom: 5%;
   text-align: left;
+  box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+  padding: 10px; 
 }
 
-.GHS-col img {
+.card-col:hover{
+  box-shadow: 0 0 20px 0px rgba(0, 0, 0, 0.2);
+}
+
+.card-col img {
   width: 100%;
   display: block;
   border-radius:  10px;
 }
 
-.GHS-col p {
+.card-col p {
   padding: 0;
 }
 
-.GHS-col h3 {
+.card-col h3 {
   margin-top: 16px;
   margin-bottom: 15px;
   text-align: center;
 }
+
 
 /* <!-- -------------------- uCube TESTIMONIAL SECTION -------------------- --> */
 .testimonials {
@@ -426,6 +448,9 @@ h3 {
 .about-col img {
   /* // if no set image have its default width */
   width: 100%;
+  border-radius: 3rem;
+  /* amount of left/right and top/bottom  */
+  box-shadow: black -2.5rem 2.5rem;
 }
 
 .about-col h1 {
@@ -601,4 +626,38 @@ h3 {
   outline: none;
   border: 1px solid #ccc;
   /* box-sizing: border-box; */
+}
+
+
+/* ----------------------- ANIMATION SECTION ----------------  */
+@keyframes moveInLeft {
+  /* start */
+  0%{
+    /* go left  */
+    transform: translateX(-10rem);
+     /* invisible */
+    opacity: 0;
+  }
+  35%{
+    color: #9c174c;
+    transform: translateX(1rem);
+  }
+  100%{
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes moveInRight{
+  0%{
+    transform: translate(10rem);
+    opacity: 0; 
+  }
+  80%{
+    transform: translateX(-1rem);
+  }
+  100%{
+    transform: translateX(0);
+    opacity: 1; 
+  }
 }
