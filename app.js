@@ -46,6 +46,13 @@ app.use(helmet());
 app.use("/admin", adminRoutes);
 app.use("/", publicRoutes);
 
+app.use("/", (req, res, next) => {
+  // go further no errorHandling middleware
+  const error = new Error("Page was not found.");
+  error.statusCode = 503; // maintenance of the server
+  next(error);
+});
+
 // * SPECIAL TYPE OF MIDDLEWARE - ERROR HANDLING WITH 4 ARGUMENTS
 app.use(errorHandling);
 

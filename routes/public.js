@@ -16,10 +16,11 @@ router.get("/contact", publicController.getContact);
 // * for contact form
 router.post("/contact", publicController.postContact);
 
+// TODO: IN PROGRESS
 // router.get("/blog", publicController.getBlogPosts);
 // router.post("/blog/add-comment", publicController.postBlogComment);
 
-router.get("/publications", publicController.getPublications);
+// router.get("/publications", publicController.getPublications);
 // * TO HAVE A CLOSE LOOK AT A POST OR PUBLICATION POST: USE DYNAMIC ROUTE PARAMETERS
 // router.get("/blog/:blogId", publicController.getBlogPost);
 // router.get("/publications/:publicationId", publicController.getPublication);
