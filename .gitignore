@@ -135,3 +135,5 @@ Documentation.md
 .prettierignore
 
 .DS_Store
+
+/public/images/
